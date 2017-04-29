@@ -7,7 +7,7 @@ Docker image with Liquibase installation.
 
 By default runs a simple container with Liquibase:
 
-```docker run -it --name liquibase sequenceiq/liquibase```
+```docker run -it --name liquibase enmobile/liquibase```
 
 In the shell you can perform the usual `liquibase` operations.
 
@@ -65,7 +65,7 @@ docker run -it \
 --entrypoint="/scripts/liquibase_command.sh" \
 -v /$LIQUIBASE_CHANGELOGS:/changelogs \
 -e CHANGELOG_FILE=$LIQUIBASE_CHANGELOG_FILE \
-sequenceiq/docker-liquibase\
+enmobile/docker-liquibase\
 "update"
 ```
 
@@ -87,7 +87,7 @@ docker run -it \
 -e CHANGELOG_FILE=$LIQUIBASE_CHANGELOG_FILE \
 -e DB_SCHEMA_NAME=$SCHEMA_NAME \
 -e DIFF_TYPES=data \
-sequenceiq/docker-liquibase\
+enmobile/docker-liquibase\
 "generate"
 ```
 
