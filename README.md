@@ -17,9 +17,9 @@ Additionally the image has a set of scripts that help automating a few liquibase
 * _diff_
 * _update_
 
-The image comes with a preinstalled postgres jdbc driver.
+The image comes with a preinstalled oracle jdbc driver.
 
-Linked with a postgres database and provided with a volume, the container can be used
+Linked with an oracle database and provided with a volume, the container can be used
 to automatically perform diff and update operations.
 
 #### diff
@@ -29,7 +29,7 @@ docker run -it \
 --name $LIQUIBASE_CONTAINER \
 --link $REFERENCE_DB_CONTAINER:db \
 --entrypoint="/scripts/liquibase_command.sh" \
--e CONNECTION_STRING="jdbc:postgresql://$DB_IP:5432/$DB_NAME" \
+-e CONNECTION_STRING="jdbc:oracle:thin://$DB_IP:1521/$DB_SID" \
 -e DB_USER="$DB_USER" \
 -e DB_PASS="$DB_PASS" \
 -e LIQUIBASE_INCLUSION_FILE="$LIQUIBASE_INCLUSION_FILE" \
@@ -41,7 +41,7 @@ sequenceiq/docker-liquibase \
 The variables should be set as follows:
 
 LIQUIBASE_CONTAINER - the name of the docker container  
-REFERENCE_DB_CONTAINER - the docker container running a (postgres) database being the reference of the diff command  
+REFERENCE_DB_CONTAINER - the docker container running a (oracle) database being the reference of the diff command  
 CONNECTION_STRING - the connection to the target database  
 DB_IP - the IP address of the target database  
 DB_NAME - the target database name  
