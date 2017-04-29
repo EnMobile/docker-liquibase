@@ -34,7 +34,7 @@ docker run -it \
 -e DB_PASS="$DB_PASS" \
 -e LIQUIBASE_INCLUSION_FILE="$LIQUIBASE_INCLUSION_FILE" \
 -v /$LIQUIBASE_CHANGELOGS:/changelogs \
-sequenceiq/docker-liquibase \
+enmobile/liquibase \
 "diff"
 ```
 
